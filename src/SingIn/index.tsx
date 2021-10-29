@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Image, Text, StatusBar } from 'react-native';
+import { View, Image, Text } from 'react-native';
 
 import ButtonIcon from "../components/buttonIcon";
+import { Background } from "../components/background";
 
 import ilustartionPng from '../assets/illustration.png';
 import { styles } from './styles';
@@ -9,7 +10,6 @@ import { styles } from './styles';
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
       <Image
         source={ilustartionPng}
         style={styles.image}
