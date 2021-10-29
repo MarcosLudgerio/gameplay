@@ -16,6 +16,16 @@ export const styles = StyleSheet.create({
     title: {
         color: theme.colors.heading,
         textAlign: 'center',
-        fontSize: 40
+        fontSize: 40,
+        marginBottom: 16
+    },
+    subtitle: {
+        color: theme.colors.heading,
+        fontSize: 15,
+        marginBottom: 64
+    },
+    content: {
+        marginTop: -40,
+        paddingHorizontal: 50
     }
 });
