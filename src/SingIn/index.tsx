@@ -17,6 +17,10 @@ export default function App() {
         Suas Jogatinas {'\n'}
         Facilmente {'\n'}
       </Text>
+      <Text>
+        Crie grupos para jogar seus games
+        favoritos com os amigos
+      </Text>
     </View>
   );
 }
