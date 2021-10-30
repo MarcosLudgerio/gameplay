@@ -6,7 +6,7 @@ import ButtonIcon from "../../components/buttonIcon";
 import ilustartionPng from '../assets/illustration.png';
 import { styles } from './styles';
 
-export default function App() {
+export default function SignIn() {
   return (
     <View style={styles.container}>
       <Image
