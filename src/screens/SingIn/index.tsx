@@ -1,8 +1,7 @@
 import React from "react";
 import { View, Image, Text } from 'react-native';
 
-import ButtonIcon from "../components/buttonIcon";
-import { Background } from "../components/background";
+import ButtonIcon from "../../components/buttonIcon";
 
 import ilustartionPng from '../assets/illustration.png';
 import { styles } from './styles';
@@ -19,11 +18,11 @@ export default function App() {
         <Text style={styles.title}>
           Conecte-se {'\n'}
           e organize {'\n'}
-          suas jogatinas
+          suas jogatinas!
         </Text>
         <Text style={styles.subtitle}>
           Crie grupos para jogar seus games {'\n'}
-          favoritos com os amigos
+          favoritos com os amigos.
         </Text>
         <ButtonIcon title="Entrar com Discord" activeOpacity={0.7} />
       </View>
