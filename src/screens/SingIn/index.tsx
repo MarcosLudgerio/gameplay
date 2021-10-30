@@ -3,7 +3,7 @@ import { View, Image, Text } from 'react-native';
 
 import ButtonIcon from "../../components/buttonIcon";
 
-import ilustartionPng from '../assets/illustration.png';
+import ilustartionPng from '../../assets/illustration.png';
 import { styles } from './styles';
 
 export default function SignIn() {
