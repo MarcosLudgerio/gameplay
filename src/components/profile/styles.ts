@@ -3,7 +3,6 @@ import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
     container: {
-        paddingTop: 35,
         flexDirection: 'row',
         alignItems: 'center'
     },
@@ -14,6 +13,7 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.text500,
         fontSize: 24,
         color: theme.colors.heading,
+        marginRight: .1
     },
     username: {
         fontFamily: theme.fonts.title700,
