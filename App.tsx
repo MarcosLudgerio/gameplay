@@ -6,7 +6,6 @@ import { StatusBar } from 'react-native';
 import AppLoading from 'expo-app-loading';
 
 import Routes from './src/routes';
-import { Background } from './src/components/background';
 
 export default function App() {
 
@@ -20,9 +19,9 @@ export default function App() {
   if (!fontLoadded) return <AppLoading />;
 
   return (
-    <Background>
+    <>
       <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
       <Routes />
-    </Background>
+    </>
   );
 }
