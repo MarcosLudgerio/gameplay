@@ -16,3 +16,4 @@ web-build/
 .expo/packager-info.json
 .expo/README.md
 .expo/settings.json
+yarn.lock
