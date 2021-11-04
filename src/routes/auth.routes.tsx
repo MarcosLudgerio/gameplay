@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Home from "../screens/home";
+import Home from "../screens/Home";
 import SignIn from "../screens/SingIn";
 import AppointmentDetails from "../screens/AppointmentsDetails";
 
