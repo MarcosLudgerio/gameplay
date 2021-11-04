@@ -29,9 +29,9 @@ export default function Home() {
             description: "A descrição descreve o que será descrito desecrevendo uma descrição"
         },
         {
-            id: '1',
+            id: '2',
             guild: {
-                id: '1',
+                id: '2',
                 name: 'Lendários',
                 icon: null,
                 owner: true
