@@ -11,7 +11,7 @@ type Props = {
     setCategory: (categoryId: string) => void;
 }
 
-export default function CategorySelect({ categorySelected, setCategory }: Props) {
+export function CategorySelect({ categorySelected, setCategory }: Props) {
     return (
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingRight: 40 }} style={styles.container}>
             {

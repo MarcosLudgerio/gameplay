@@ -9,7 +9,7 @@ type props = {
     urlImage: string
 }
 
-export default function Avatar({ urlImage }: props) {
+export function Avatar({ urlImage }: props) {
 
     const { secondary50, secondary70 } = theme.colors;
 

@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text } from "react-native";
-import ButtonAdd from "../addButton";
 
-import Avatar from "../avatar";
+
+import { ButtonAdd } from "../addButton";
+import { Avatar } from "../avatar";
 
 import { styles } from "./styles";
 
-export default function Profile() {
+export function Profile() {
     return (
         <View style={styles.container}>
             <Avatar urlImage="https://github.com/marcosludgerio.png" />
