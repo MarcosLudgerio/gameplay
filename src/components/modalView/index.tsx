@@ -1,8 +1,7 @@
 import React, { ReactNode } from "react";
-import { View, Modal, ModalProps } from "react-native";
+import { View, Modal, ModalProps, Text } from "react-native";
 
 import { Background } from "../background";
-import Guilds from "../../screens/Guilds";
 
 import { styles } from "./styles";
 
@@ -16,9 +15,8 @@ export function ModalView({ children, ...rest }: Props) {
             <View style={styles.overlay}>
                 <View style={styles.container}>
                     <Background>
-                        <View style={styles.bar}>
-                            {children}
-                        </View>
+                        <View style={styles.bar} />
+                        {children}
                     </Background>
                 </View>
             </View>

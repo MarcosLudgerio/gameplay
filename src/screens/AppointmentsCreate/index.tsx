@@ -14,6 +14,7 @@ import { Guilds } from "../Guilds";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
 import { GuildProps } from "../../components/appointment";
+import { GuildIcon } from "../../components/guildIcon";
 
 
 export default function AppointmentCreate() {
@@ -27,6 +28,7 @@ export default function AppointmentCreate() {
     }
     function handlenGuildSelect(selectGuild: GuildProps) {
         setGuild(selectGuild);
+        setOpenGuildModal(false);
     }
 
     return (
@@ -46,10 +48,10 @@ export default function AppointmentCreate() {
                     <View style={styles.form}>
                         <RectButton onPress={handleOpenGuilds}>
                             <View style={styles.select}>
-                                <View style={styles.image} />
+                                {guild.icon ? <GuildIcon /> : <View style={styles.image} />}
                                 <View style={styles.selectBody}>
                                     <Text style={styles.label}>
-                                        Selecione um servidor
+                                        {guild.name ? guild.name : "Selecione um servidor"}
                                     </Text>
                                 </View>
                                 <Feather
@@ -95,10 +97,10 @@ export default function AppointmentCreate() {
                         </View>
                     </View>
                 </ScrollView>
+                <ModalView visible={openGuildModal}>
+                    <Guilds handlenGuildSelect={handlenGuildSelect} />
+                </ModalView>
             </Background>
-            <ModalView visible={openGuildModal}>
-                <Guilds handlenGuildSelect={handlenGuildSelect} />
-            </ModalView>
         </KeyboardAvoidingView>
     );
 }

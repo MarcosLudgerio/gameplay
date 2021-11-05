@@ -1,7 +1,11 @@
 import React from "react";
 import { View, FlatList } from "react-native";
-import { Guild, GuildProps } from "../../components/guild";
+
+import { Guild } from "../../components/guild";
+import { GuildProps } from "../../components/appointment";
 import { ListDivide } from "../../components/listDivide";
+
+
 import { styles } from "./styles";
 
 type Props = {
@@ -14,8 +18,14 @@ export function Guilds({ handlenGuildSelect }: Props) {
         {
             id: '1',
             name: 'Lendários',
-            icon: null,
+            icon: "image.png",
             owner: true
+        },
+        {
+            id: '2',
+            name: 'Caras de chibatas',
+            icon: null,
+            owner: false
         }
     ]
 
