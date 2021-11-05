@@ -22,7 +22,7 @@ O código original pode ser acessado no [repositório](https://github.com/rocket
 ## Executando o projeto
 Execute no terminal os comandos abaixo
 ```sh
-$ git clone https://github.com/MarcosLudgerio/gameplay.git
+$ git clone https://github.com/MarcosLudgerio/testEduApi.git
 $ cd gameplay
 $ npm install
 $ expo install
