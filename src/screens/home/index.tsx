@@ -42,7 +42,55 @@ export default function Home() {
             category: '1',
             date: '22/06 às 20:40hrs',
             description: "A descrição descreve o que será descrito desecrevendo uma descrição"
-        }
+        },
+        // {
+        //     id: '3',
+        //     guild: {
+        //         id: '1',
+        //         name: 'Lendários',
+        //         icon: null,
+        //         owner: true
+        //     },
+        //     category: '1',
+        //     date: '22/06 às 20:40hrs',
+        //     description: "A descrição descreve o que será descrito desecrevendo uma descrição"
+        // },
+        // {
+        //     id: '4',
+        //     guild: {
+        //         id: '2',
+        //         name: 'Lendários',
+        //         icon: null,
+        //         owner: true
+        //     },
+        //     category: '1',
+        //     date: '22/06 às 20:40hrs',
+        //     description: "A descrição descreve o que será descrito desecrevendo uma descrição"
+        // },
+        // {
+        //     id: '5',
+        //     guild: {
+        //         id: '1',
+        //         name: 'Lendários',
+        //         icon: null,
+        //         owner: true
+        //     },
+        //     category: '1',
+        //     date: '22/06 às 20:40hrs',
+        //     description: "A descrição descreve o que será descrito desecrevendo uma descrição"
+        // },
+        // {
+        //     id: '6',
+        //     guild: {
+        //         id: '2',
+        //         name: 'Lendários',
+        //         icon: null,
+        //         owner: true
+        //     },
+        //     category: '1',
+        //     date: '22/06 às 20:40hrs',
+        //     description: "A descrição descreve o que será descrito desecrevendo uma descrição"
+        // }
     ]
 
     function handleCategorySelect(categoryId: string) {
@@ -68,20 +116,16 @@ export default function Home() {
                 categorySelected={category}
                 setCategory={handleCategorySelect}
             />
-            <View style={styles.content}>
-                <ListHeader
-                    tittle="Partidas agendadas"
-                    subtittle="6"
-                />
-                <FlatList
-                    data={appoiments}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => <Appointment data={item} onPress={handleAppointment} />}
-                    ItemSeparatorComponent={() => <ListDivide />}
-                    style={styles.matches}
-                    showsVerticalScrollIndicator={false}
-                />
-            </View>
+            <ListHeader tittle="Partidas agendadas" subtittle="6" />
+            <FlatList
+                data={appoiments}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => <Appointment data={item} onPress={handleAppointment} />}
+                ItemSeparatorComponent={() => <ListDivide />}
+                style={styles.matches}
+                contentContainerStyle={{ paddingBottom: 69 }}
+                showsVerticalScrollIndicator={false}
+            />
         </Background>
     );
 }

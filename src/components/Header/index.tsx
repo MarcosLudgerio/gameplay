@@ -29,10 +29,7 @@ export function Header({ tittle, action }: Prpos) {
                 <Feather name="arrow-left" size={30} color={heading} />
             </BorderlessButton>
             <Text style={styles.tittle} > {tittle} </Text>
-            {
-                action &&
-                <View>{action}</View>
-            }
+            {action ? <View>{action}</View> : <View style={{ width: 24 }} />}
         </LinearGradient>
     );
 }

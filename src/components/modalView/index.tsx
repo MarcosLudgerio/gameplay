@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { View, Modal, ModalProps, Text } from "react-native";
+import { View, Modal, ModalProps, TouchableWithoutFeedback } from "react-native";
 
 import { Background } from "../background";
 
@@ -7,19 +7,22 @@ import { styles } from "./styles";
 
 type Props = ModalProps & {
     children: ReactNode;
+    closeGuild: () => void;
 };
 
-export function ModalView({ children, ...rest }: Props) {
+export function ModalView({ children, closeGuild, ...rest }: Props) {
     return (
-        <Modal transparent animationType="slide" {...rest}>
-            <View style={styles.overlay}>
-                <View style={styles.container}>
-                    <Background>
-                        <View style={styles.bar} />
-                        {children}
-                    </Background>
+        <Modal transparent statusBarTranslucent animationType="slide" {...rest}>
+            <TouchableWithoutFeedback onPress={closeGuild}>
+                <View style={styles.overlay}>
+                    <View style={styles.container}>
+                        <Background>
+                            <View style={styles.bar} />
+                            {children}
+                        </Background>
+                    </View>
                 </View>
-            </View>
+            </TouchableWithoutFeedback>
         </Modal>
     );
 }

@@ -5,10 +5,10 @@ export const styles = StyleSheet.create({
     container: {
         width: '100%',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignSelf: 'center',
     },
     content: {
-        flex: 1
+        flex: 1,
     },
     header: {
         width: '100%',
@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 12
     },
-    tittle: {
+    title: {
         fontFamily: theme.fonts.title700,
         color: theme.colors.heading,
         fontSize: 18
@@ -30,11 +30,15 @@ export const styles = StyleSheet.create({
     footer: {
         width: '100%',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     dateInfo: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+    },
+    playersInfo: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     date: {
         fontFamily: theme.fonts.text500,
@@ -42,15 +46,18 @@ export const styles = StyleSheet.create({
         fontSize: 13,
         marginLeft: 7
     },
-    playersInfo: {
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    players: {
+    player: {
         fontFamily: theme.fonts.text500,
-        color: theme.colors.heading,
         fontSize: 13,
         marginLeft: 7,
         marginRight: 24
+    },
+    guildIconContainer: {
+        height: 68,
+        width: 64,
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 20
     }
 });

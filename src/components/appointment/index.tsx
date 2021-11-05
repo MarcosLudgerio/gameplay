@@ -1,6 +1,7 @@
 import React from "react";
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { View, Text } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 import { GuildIcon } from "../guildIcon";
 
@@ -33,15 +34,17 @@ export function Appointment({ data, ...rest }: Props) {
 
     const [category] = categories.filter(item => item.id === data.category);
     const { owner } = data.guild;
-    const { primary, on } = theme.colors;
+    const { primary, on, secondary50, secondary70 } = theme.colors;
 
     return (
         <RectButton  {...rest}>
             <View style={styles.container}>
-                <GuildIcon />
+                <LinearGradient colors={[secondary50, secondary70]} style={styles.guildIconContainer}>
+                    <GuildIcon />
+                </LinearGradient>
                 <View style={styles.content}>
                     <View style={styles.header}>
-                        <Text style={styles.tittle}> {data.guild.name} </Text>
+                        <Text style={styles.title}> {data.guild.name} </Text>
                         <Text style={styles.category}> {category.tittle} </Text>
                     </View>
                     <View style={styles.footer}>
@@ -51,7 +54,7 @@ export function Appointment({ data, ...rest }: Props) {
                         </View>
                         <View style={styles.playersInfo}>
                             <PlayeSvg fill={owner ? primary : on} />
-                            <Text style={[styles.players, { color: owner ? primary : on }]}>{
+                            <Text style={[styles.player, { color: owner ? primary : on }]}>{
                                 owner ? "Dono da bola" : "Convidado"
                             }</Text>
                         </View>

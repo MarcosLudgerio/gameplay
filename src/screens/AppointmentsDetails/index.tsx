@@ -74,9 +74,6 @@ export default function AppointmentDetails() {
             <View style={styles.footer}>
                 <ButtonIcon title="Entrar na partida" />
             </View>
-
-
-
         </Background>
     );
 }

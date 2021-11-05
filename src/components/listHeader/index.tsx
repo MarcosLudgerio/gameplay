@@ -11,8 +11,8 @@ type Prpos = {
 export function ListHeader({ tittle, subtittle }: Prpos) {
     return (
         <View style={styles.container}>
-            <Text style={styles.tittle}>{tittle}</Text>
-            <Text style={styles.subtittle}>{subtittle}</Text>
+            <Text style={styles.title}>{tittle}</Text>
+            <Text style={styles.subtitle}>{subtittle}</Text>
         </View>
     );
 }
