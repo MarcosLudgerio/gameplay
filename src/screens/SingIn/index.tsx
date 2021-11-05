@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { ButtonIcon } from "../../components/buttonIcon";
 import { Background } from "../../components/background";
+import { useAuth } from "../../hooks/auth";
 
 import ilustartionPng from '../../assets/illustration.png';
 import { styles } from './styles';
@@ -11,6 +12,7 @@ import { styles } from './styles';
 export default function SignIn() {
 
   const navigation = useNavigation();
+  const { user } = useAuth();
 
   function handleSigIn() {
     navigation.navigate("Home");
