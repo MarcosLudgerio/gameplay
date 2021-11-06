@@ -32,7 +32,7 @@ export default function AppointmentCreate() {
     }
 
     function handleCategorySelect(categoryId: string) {
-        setCategory(categoryId);
+        categoryId === category ? setCategory('') : setCategory(categoryId);
     }
 
     return (
