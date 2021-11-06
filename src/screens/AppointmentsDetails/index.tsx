@@ -59,10 +59,7 @@ export default function AppointmentDetails() {
                 </View>
             </ImageBackground>
 
-            <ListHeader
-                tittle="Jogadores"
-                subtittle="3"
-            />
+            <ListHeader tittle="Jogadores" subtittle={`Total ${members.length}`} />
 
             <FlatList
                 data={members}

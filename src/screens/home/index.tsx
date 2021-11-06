@@ -116,7 +116,7 @@ export default function Home() {
                 categorySelected={category}
                 setCategory={handleCategorySelect}
             />
-            <ListHeader tittle="Partidas agendadas" subtittle="6" />
+            <ListHeader tittle="Partidas agendadas" subtittle={`Total ${appoiments.length}`} />
             <FlatList
                 data={appoiments}
                 keyExtractor={item => item.id}
