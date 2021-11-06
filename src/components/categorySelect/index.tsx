@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 
 import { categories } from "../../utils/categories";
 import { Category } from "../category";

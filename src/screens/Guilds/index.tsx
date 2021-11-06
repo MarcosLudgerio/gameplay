@@ -27,30 +27,30 @@ export function Guilds({ handlenGuildSelect }: Props) {
             icon: null,
             owner: false
         },
-        {
-            id: '3',
-            name: 'Caras de chibatas',
-            icon: null,
-            owner: false
-        },
-        {
-            id: '4',
-            name: 'Caras de chibatas',
-            icon: null,
-            owner: false
-        },
-        {
-            id: '5',
-            name: 'Caras de chibatas',
-            icon: null,
-            owner: false
-        },
-        {
-            id: '6',
-            name: 'Caras de chibatas',
-            icon: null,
-            owner: false
-        }
+        // {
+        //     id: '3',
+        //     name: 'Caras de chibatas',
+        //     icon: null,
+        //     owner: false
+        // },
+        // {
+        //     id: '4',
+        //     name: 'Caras de chibatas',
+        //     icon: null,
+        //     owner: false
+        // },
+        // {
+        //     id: '5',
+        //     name: 'Caras de chibatas',
+        //     icon: null,
+        //     owner: false
+        // },
+        // {
+        //     id: '6',
+        //     name: 'Caras de chibatas',
+        //     icon: null,
+        //     owner: false
+        // }
     ]
 
     return (
