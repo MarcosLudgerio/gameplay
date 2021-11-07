@@ -4,6 +4,7 @@ import { View, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import { GuildIcon } from "../guildIcon";
+import { GuildProps } from "../guild";
 
 import { styles } from "./styles";
 import { categories } from "../../utils/categories";
@@ -11,12 +12,6 @@ import { theme } from "../../global/styles/theme";
 import PlayeSvg from '../../assets/player.svg'
 import CalendarSvg from '../../assets/calendar.svg'
 
-export type GuildProps = {
-    id: string;
-    name: string;
-    icon: null | string;
-    owner: boolean;
-}
 
 export type AppointmentProps = {
     id: string;

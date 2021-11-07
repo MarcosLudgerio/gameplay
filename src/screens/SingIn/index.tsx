@@ -16,9 +16,14 @@ export function SignIn() {
   async function handleSigIn() {
     try {
       await signIn();
-      Alert.alert('Logado');
     } catch (error) {
-      Alert.alert(`${error}`);
+      Alert.alert(
+        "Falha no login",
+        `${error}`,
+        [
+          { text: "OK" }
+        ]
+      );
     }
   }
 

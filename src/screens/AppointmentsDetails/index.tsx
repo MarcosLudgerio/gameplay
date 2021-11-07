@@ -65,7 +65,7 @@ export default function AppointmentDetails() {
                 data={members}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => <Member data={item} />}
-                ItemSeparatorComponent={() => <ListDivide />}
+                ItemSeparatorComponent={() => <ListDivide isCentered />}
             />
 
             <View style={styles.footer}>
