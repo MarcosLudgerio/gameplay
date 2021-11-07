@@ -9,12 +9,12 @@ import { Header } from "../../components/Header";
 import { SmallInput } from "../../components/smallInput";
 import { Button } from "../../components/button";
 import { ModalView } from "../../components/modalView";
+import { GuildIcon } from "../../components/guildIcon";
 import { Guilds } from "../Guilds";
+import { GuildProps } from "../../components/guild";
 
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
-import { GuildProps } from "../../components/appointment";
-import { GuildIcon } from "../../components/guildIcon";
 
 
 export default function AppointmentCreate() {
@@ -52,7 +52,7 @@ export default function AppointmentCreate() {
                     <View style={styles.form}>
                         <RectButton onPress={handleOpenGuilds}>
                             <View style={styles.select}>
-                                {guild.icon ? <GuildIcon /> : <View style={styles.image} />}
+                                {guild.icon ? <GuildIcon guildIcon={guild.icon} guildId={guild.id} /> : <View style={styles.image} />}
                                 <View style={styles.selectBody}>
                                     <Text style={styles.label}>
                                         {guild.name ? guild.name : "Selecione um servidor"}
