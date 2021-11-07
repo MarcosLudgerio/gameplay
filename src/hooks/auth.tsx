@@ -53,14 +53,12 @@ function AuthProvider({ children }: AuthProviderProps) {
             const { type, params } = await AuthSession.startAsync({ authUrl }) as AuthorizationResponse;
 
             if (type === 'success') {
-                const userInfo = await api.get('/users/@me', { headers: { authorization: `Bearer ${params.access_token}` } });
+                api.defaults.headers.common.authorization = `Bearer ${params.access_token}`;
+                const userInfo = await api.get('/users/@me');
                 const firstName = userInfo.data.username.split(' ')[0];
-                const userData = { ...userInfo.data, firstName, token: params.access_token, };
-
+                const userData = { ...userInfo.data, firstName, token: params.access_token };
                 userData.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`;
-
                 AsyncStorage.setItem(COLLECTION_USERS, JSON.stringify(userData));
-
                 setUser(userData);
             }
         } catch {
@@ -74,7 +72,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         const storage = await AsyncStorage.getItem(COLLECTION_USERS);
         if (storage) {
             const userLogged = JSON.parse(storage) as User;
-            api.defaults.headers.common.authotization = `Bearer ${userLogged.token}`;
+            api.defaults.headers.common.authorization = `Bearer ${userLogged.token}`;
             setUser(userLogged);
         }
     }

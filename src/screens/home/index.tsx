@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { Profile } from "../../components/profile";
@@ -111,7 +111,6 @@ export default function Home() {
                 <Profile />
                 <ButtonAdd onPress={handleAppointmentCreate} />
             </View>
-
             <CategorySelect
                 categorySelected={category}
                 setCategory={handleCategorySelect}
