@@ -17,3 +17,5 @@ web-build/
 .expo/README.md
 .expo/settings.json
 yarn.lock
+
+.env

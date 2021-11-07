@@ -1,16 +1,21 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import * as AuthSession from 'expo-auth-session';
 
-import { SCOPE, CLIENT_ID, CDN_IMAGE, URI_REDIRECT, RESPONSE_TYPE } from '../configs/authDiscord';
+const { SCOPE } = process.env;
+const { CLIENT_ID } = process.env;
+const { CDN_IMAGE } = process.env;
+const { URI_REDIRECT } = process.env;
+const { RESPONSE_TYPE } = process.env;
+
 import { api } from '../services/api';
 
 type User = {
-    id: String;
-    username: String;
-    firstName: String;
-    avatar: String;
-    email: String;
-    token: String;
+    id: string;
+    username: string;
+    firstName: string;
+    avatar: string;
+    email: string;
+    token: string;
 }
 
 type AuthContextData = {
@@ -50,10 +55,11 @@ function AuthProvider({ children }: AuthProviderProps) {
                 userInfo.data.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`;
 
                 setUser({ ...userInfo.data, firstName, token: params.access_token, });
-                setLoading(false);
             }
         } catch {
-            throw new Error("Verifique os dados!")
+            throw new Error("Não foi possível conectar, tente novamente!");
+        } finally {
+            setLoading(false);
         }
     }
 
