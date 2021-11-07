@@ -1,5 +1,9 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import * as AuthSession from 'expo-auth-session';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import { api } from '../services/api';
+import { COLLECTION_USERS } from "../configs/database";
 
 const { SCOPE } = process.env;
 const { CLIENT_ID } = process.env;
@@ -7,7 +11,6 @@ const { CDN_IMAGE } = process.env;
 const { URI_REDIRECT } = process.env;
 const { RESPONSE_TYPE } = process.env;
 
-import { api } from '../services/api';
 
 type User = {
     id: string;
@@ -52,9 +55,13 @@ function AuthProvider({ children }: AuthProviderProps) {
             if (type === 'success') {
                 const userInfo = await api.get('/users/@me', { headers: { authorization: `Bearer ${params.access_token}` } });
                 const firstName = userInfo.data.username.split(' ')[0];
-                userInfo.data.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`;
+                const userData = { ...userInfo.data, firstName, token: params.access_token, };
 
-                setUser({ ...userInfo.data, firstName, token: params.access_token, });
+                userData.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`;
+
+                AsyncStorage.setItem(COLLECTION_USERS, JSON.stringify(userData));
+
+                setUser(userData);
             }
         } catch {
             throw new Error("Não foi possível conectar, tente novamente!");
@@ -62,6 +69,19 @@ function AuthProvider({ children }: AuthProviderProps) {
             setLoading(false);
         }
     }
+
+    async function loadUsers() {
+        const storage = await AsyncStorage.getItem(COLLECTION_USERS);
+        if (storage) {
+            const userLogged = JSON.parse(storage) as User;
+            api.defaults.headers.common.authotization = `Bearer ${userLogged.token}`;
+            setUser(userLogged);
+        }
+    }
+
+    useEffect(() => {
+        loadUsers();
+    }, []);
 
     return (
         <AuthContext.Provider value={{ user, signIn, loading }}>
