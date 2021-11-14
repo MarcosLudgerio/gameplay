@@ -18,7 +18,7 @@ export function CategorySelect({ categorySelected, setCategory, hasCheckSelect =
             {
                 categories.map(category => (
                     <Category
-                        title={category.tittle}
+                        title={category.title}
                         key={category.id}
                         icon={category.icon}
                         checked={category.id === categorySelected}

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { ImageBackground, Text, View, FlatList } from "react-native";
+import { ImageBackground, Text, View, FlatList, Share, Platform } from "react-native";
 import { Fontisto } from '@expo/vector-icons'
 import { BorderlessButton } from "react-native-gesture-handler";
 import { useRoute } from "@react-navigation/native";
+import * as Linking from 'expo-linking';
 
 import { Background } from "../../components/background";
 import { Header } from "../../components/Header";
@@ -38,6 +39,16 @@ export default function AppointmentDetails() {
     const route = useRoute();
     const { guildSelect } = route.params as ParamsProps;
 
+    function handleShare() {
+        const message = Platform.OS === "ios" ? `Junte-se ao servidor ${guildSelect.guild.name}` : widget.instant_invite;
+
+        widget.instant_invite ? Share.share({ message, url: widget.instant_invite }) : alert("Convite inválido");
+    }
+
+    async function handleLink() {
+        await Linking.openURL(widget.instant_invite);
+    }
+
     async function fetchWidget() {
         try {
             const response = await api.get(`/guilds/${guildSelect.guild.id}/widget.json`);
@@ -58,7 +69,7 @@ export default function AppointmentDetails() {
             <Header
                 tittle="Detalhes"
                 action={
-                    <BorderlessButton>
+                    <BorderlessButton onPress={handleShare}>
                         <Fontisto
                             name="share"
                             size={24}
@@ -83,10 +94,14 @@ export default function AppointmentDetails() {
                         renderItem={({ item }) => <Member data={item} />}
                         ItemSeparatorComponent={() => <ListDivide isCentered />}
                     />
+                    {
+                        guildSelect.guild.owner ?
+                            <View style={styles.footer}>
+                                <ButtonIcon title="Entrar na partida" onPress={handleLink} />
+                            </View> :
+                            false
+                    }
 
-                    <View style={styles.footer}>
-                        <ButtonIcon title="Entrar na partida" />
-                    </View>
                 </>
             }
         </Background>

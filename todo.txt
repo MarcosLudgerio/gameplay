@@ -1,0 +1,12 @@
+Logout: 
+- Fazer funcionalidade para sair da aplicação, pode-se criar um modal ou algum componente para perguntar se o usuário realmente deseja sair
+
+Agendamento: 
+- Alterar o tipo de botão de agendamento para que apareça um relógio na hora e um calendário na data
+- Tratar as exceções: escolher uma data anterior a de hoje, escolher uma hora anterior a agora e colocar dados inválidos nesses campos
+
+Tratamento de erros:
+- Quando seleciona um servidor que o usuário não é o dono a aplicação, quebra
+- Não é possível limpar os agendamentos
+- Não existe nenhum backend
+
